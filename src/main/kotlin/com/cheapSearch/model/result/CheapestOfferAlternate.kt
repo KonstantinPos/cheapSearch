@@ -10,7 +10,7 @@ data class CheapestOfferAlternate(
     val mealType: Int,
     val mealTypeName: String,
     val oilTax: Int,
-    val `operator`: Int,
+    val operator: Int,
     val operatorName: String,
     val originalPrice: Int,
     val price: Int,

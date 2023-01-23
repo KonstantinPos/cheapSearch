@@ -1,6 +1,10 @@
 package com.cheapSearch.model.result
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 data class Filters(
-    val show_free_cancel: Boolean,
-    val show_tickets: String
+    @JsonProperty("show_free_cancel")
+    val showFreeCancel: Boolean,
+    @JsonProperty("show_tickets")
+    val showTickets: String
 )

@@ -1,18 +1,30 @@
 package com.cheapSearch.model.result
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 data class Params(
     val adults: Int,
-    val cache_operators_by_status: CacheOperatorsByStatus,
-    val cache_strategy: String,
-    val cache_time: Int,
-    val depart_city_id: Int,
+    @JsonProperty("cache_operators_by_status")
+    val cacheOperatorsByStatus: CacheOperatorsByStatus,
+    @JsonProperty("cache_strategy")
+    val cacheStrategy: String,
+    @JsonProperty("cache_time")
+    val cacheTime: Int,
+    @JsonProperty("depart_city_id")
+    val departCityId: Int,
     val destination: Destination,
-    val duration_from: Int,
-    val duration_to: Int,
+    @JsonProperty("duration_from")
+    val durationFrom: Int,
+    @JsonProperty("duration_to")
+    val durationTo: Int,
     val kids: Int,
-    val kids_ages: List<Int>,
-    val start_from: String,
-    val start_to: String,
+    @JsonProperty("kids_ages")
+    val kidsAges: List<Int>,
+    @JsonProperty("start_from")
+    val startFrom: String,
+    @JsonProperty("start_to")
+    val startTo: String,
     val tag: String,
-    val ticket_strategy: String
+    @JsonProperty("ticket_strategy")
+    val ticketStrategy: String
 )

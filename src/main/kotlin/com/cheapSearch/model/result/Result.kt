@@ -1,5 +1,7 @@
 package com.cheapSearch.model.result
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 data class Result(
     val airConditionerCardInfo: String? = null,
     val airportDistanceCardInfo: String,
@@ -14,7 +16,8 @@ data class Result(
     val hotel: Hotel,
     val id: Int,
     val images: List<String>,
-    val instantly_bookable: Boolean,
+    @JsonProperty("instantly_bookable")
+    val instantlyBookable: Boolean,
     val internetCardInfo: String? = null,
     val location: String,
     val mealTypes: List<Int>,

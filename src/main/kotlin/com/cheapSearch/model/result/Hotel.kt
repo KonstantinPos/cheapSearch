@@ -1,5 +1,7 @@
 package com.cheapSearch.model.result
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 data class Hotel(
     val beachLine: Int,
     val beachPropertyId: Int,
@@ -7,7 +9,8 @@ data class Hotel(
     val coords: Coords,
     val description: String,
     val id: Int,
-    val is_recommended: Boolean,
+    @JsonProperty("is_recommended")
+    val isRecommended: Boolean,
     val name: String,
     val openingDate: String? = null,
     val rating: Double,
