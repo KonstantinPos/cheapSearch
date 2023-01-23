@@ -1,7 +1,7 @@
 package com.cheapSearch.controller
 
-import com.cheapSearch.model.SearchRunRequest
-import com.cheapSearch.model.SearchRunResponse
+import com.cheapSearch.model.search.SearchRunRequest
+import com.cheapSearch.model.search.SearchRunResponse
 import com.cheapSearch.service.SearchRunService
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.tags.Tag

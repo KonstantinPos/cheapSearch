@@ -1,0 +1,181 @@
+data class Test(
+    val favoriteHotels: FavoriteHotels,
+    val hasInstantlyBookableOffers: Any,
+    val results: List<Result>,
+    val stats: Stats,
+    val suggested_subregions: SuggestedSubregions
+)
+
+data class FavoriteHotels(
+    val hotels: List<Any>,
+    val showFavoritesNotice: Boolean
+)
+
+data class Result(
+    val airConditionerCardInfo: String,
+    val airportDistanceCardInfo: String,
+    val beachCardInfo: String,
+    val cheapestOffer: CheapestOffer,
+    val cheapestOfferAlternate: CheapestOfferAlternate,
+    val departureDateFrom: String,
+    val departureDateTo: String,
+    val durationMax: Int,
+    val durationMin: Int,
+    val freeCancel: Boolean,
+    val hotel: Hotel,
+    val id: Int,
+    val images: List<String>,
+    val instantly_bookable: Boolean,
+    val internetCardInfo: String,
+    val location: String,
+    val mealTypes: List<Int>,
+    val minCost: Int,
+    val offerCount: Int,
+    val salesCount: Int,
+    val shortLocationCardInfo: String,
+    val strongboxCardInfo: String,
+    val subTitle: String,
+    val title: String,
+    val type: String,
+    val url: String,
+    val weights: Weights
+)
+
+data class Stats(
+    val total: Total
+)
+
+data class SuggestedSubregions(
+    val country: String,
+    val suggestions: List<Suggestion>
+)
+
+data class CheapestOffer(
+    val checkInDate: String,
+    val checkOutDate: String,
+    val duration: Int,
+    val earlyBooking: Any,
+    val endDate: String,
+    val id: String,
+    val mealType: Int,
+    val mealTypeName: String,
+    val oilTax: Int,
+    val `operator`: Int,
+    val operatorName: String,
+    val originalPrice: Int,
+    val price: Int,
+    val priceBeforeDiscount: Int,
+    val regularFlight: Boolean,
+    val roomType: Any,
+    val roomTypeName: String,
+    val startDate: String,
+    val transport: String
+)
+
+data class CheapestOfferAlternate(
+    val checkInDate: String,
+    val checkOutDate: String,
+    val duration: Int,
+    val earlyBooking: Any,
+    val endDate: String,
+    val id: String,
+    val mealType: Int,
+    val mealTypeName: String,
+    val oilTax: Int,
+    val `operator`: Int,
+    val operatorName: String,
+    val originalPrice: Int,
+    val price: Int,
+    val priceBeforeDiscount: Int,
+    val regularFlight: Boolean,
+    val roomType: Any,
+    val roomTypeName: String,
+    val startDate: String,
+    val transport: String
+)
+
+data class Hotel(
+    val beachLine: Int,
+    val beachPropertyId: Int,
+    val beachTypeIds: List<Int>,
+    val coords: Coords,
+    val description: String,
+    val id: Int,
+    val is_recommended: Boolean,
+    val name: String,
+    val openingDate: Any,
+    val rating: Double,
+    val reviewsCount: Int,
+    val stars: Int,
+    val tags: List<Any>
+)
+
+data class Weights(
+    val balance: Int,
+    val cheap: Int,
+    val ctr: Int,
+    val lux: Int,
+    val promoted: Int,
+    val seoPopularity: Int
+)
+
+data class Coords(
+    val lat: Double,
+    val lon: Double
+)
+
+data class Total(
+    val filters: Filters,
+    val hotelCount: Int,
+    val maxCardCost: Int,
+    val maxCost: Int,
+    val maxHotelArea: Int,
+    val minCost: Int,
+    val minHotelArea: Int,
+    val operators: List<Operator>,
+    val pages: Int
+)
+
+data class Filters(
+    val show_free_cancel: Boolean,
+    val show_tickets: String
+)
+
+data class Operator(
+    val id: Int,
+    val name: String
+)
+
+data class Suggestion(
+    val name: String,
+    val params: Params,
+    val short_description: String
+)
+
+data class Params(
+    val adults: Int,
+    val cache_operators_by_status: CacheOperatorsByStatus,
+    val cache_strategy: String,
+    val cache_time: Int,
+    val depart_city_id: Int,
+    val destination: Destination,
+    val duration_from: Int,
+    val duration_to: Int,
+    val kids: Int,
+    val kids_ages: List<Int>,
+    val start_from: String,
+    val start_to: String,
+    val tag: String,
+    val ticket_strategy: String
+)
+
+data class CacheOperatorsByStatus(
+    val empty: List<Int>,
+    val fresh: List<Int>,
+    val mapping_empty: List<Int>
+)
+
+data class Destination(
+    val id: Int,
+    val type: String
+)

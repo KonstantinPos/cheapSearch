@@ -1,4 +1,4 @@
-package com.cheapSearch.model
+package com.cheapSearch.model.search
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
