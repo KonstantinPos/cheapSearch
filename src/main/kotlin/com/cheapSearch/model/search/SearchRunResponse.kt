@@ -16,7 +16,7 @@ data class SearchRunResponse(
     @JsonProperty("has_ticket_strategy")
     val hasTicketStrategy: Boolean? = null,
 
-    val id: String? = null,
+    val id: String,
 
     val url: String? = null
 )

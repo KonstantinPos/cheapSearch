@@ -7,7 +7,7 @@ data class Result(
     val airportDistanceCardInfo: String,
     val beachCardInfo: String,
     val cheapestOffer: CheapestOffer,
-    val cheapestOfferAlternate: CheapestOfferAlternate,
+    val cheapestOfferAlternate: CheapestOfferAlternate? = null,
     val departureDateFrom: String,
     val departureDateTo: String,
     val durationMax: Int,

@@ -4,7 +4,7 @@ data class CheapestOfferAlternate(
     val checkInDate: String,
     val checkOutDate: String,
     val duration: Int,
-    val earlyBooking: Boolean? = null,
+    val earlyBooking: Any? = null,
     val endDate: String,
     val id: String,
     val mealType: Int,
