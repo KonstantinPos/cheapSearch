@@ -12,10 +12,11 @@ import org.springframework.web.reactive.function.client.WebClient
 
 @Service
 class SearchRunServiceImpl(
-    private val webClient: WebClient
+    private val webClient: WebClient,
+    private val telegramBot: TelegramBot
 ) : SearchRunService {
     override suspend fun searchRun(searchRunRequest: SearchRunRequest): SearchRunResponse {
-
+        telegramBot.sendMessage(442595576, "Hi from cont")
         while (true) {
             val searchId = webClient.post()
                 .uri("https://www.onlinetours.ru/api/v1/searches")

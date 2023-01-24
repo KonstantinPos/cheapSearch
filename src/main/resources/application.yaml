@@ -3,3 +3,7 @@ spring:
     name: ins-loan-offer
 server:
   port: 8080
+
+bot:
+  name: CheapSearchToursBot
+  token: 5980693442:AAGbdQyXX3XkeGRmFnBhNwp2jqMb0cwcfqs
