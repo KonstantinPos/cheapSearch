@@ -8,7 +8,7 @@ data class CheapestOffer(
     val endDate: String,
     val id: String,
     val mealType: Int,
-    val mealTypeName: String,
+    val mealTypeName: String? = null,
     val oilTax: Int,
     val operator: Int,
     val operatorName: String,
