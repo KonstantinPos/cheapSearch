@@ -34,19 +34,19 @@ class TelegramBot(
             val chatId = update.message.chatId
             when (messageText) {
                 "/start" -> startCommandReceived(chatId, update.message.chat.firstName)
-                "/Thailand" -> startCommandReceived2(chatId, update.message.chat.firstName, createSearchRunRequest(71))
-                "/Sri Lanka" -> startCommandReceived2(chatId, update.message.chat.firstName, createSearchRunRequest(70))
-                else -> sendMessage(chatId, "Sorry, command was not recognized")
+                "/Thailand" -> startCommandReceived2(chatId, createSearchRunRequest(71))
+                "/Sri Lanka" -> startCommandReceived2(chatId, createSearchRunRequest(70))
+                else -> sendMessage(chatId.toString(), "Sorry, command was not recognized")
             }
         }
     }
 
     private fun startCommandReceived(chatId: Long, firstName: String) {
         val answer = "Hi, $firstName, nice to meet you"
-        sendMessage(chatId, answer)
+        sendMessage(chatId.toString(), answer)
     }
 
-    private fun startCommandReceived2(chatId: Long, firstName: String, createSearchRunRequest: SearchRunRequest) {
+    private fun startCommandReceived2(chatId: Long, createSearchRunRequest: SearchRunRequest) {
 
         val searchId = runBlocking {
             webClient.post()
@@ -67,11 +67,11 @@ class TelegramBot(
         }
 
         val minCost2 = resultResult!!.results.minOf { it.cheapestOffer.price }
-        sendMessage(chatId, minCost2.toString())
+        sendMessage(chatId.toString(), minCost2.toString())
     }
 
-    fun sendMessage(chatId: Long, textToSend: String) {
-        val send = SendMessage(chatId.toString(), textToSend)
+    fun sendMessage(chatId: String, textToSend: String) {
+        val send = SendMessage(chatId, textToSend)
         execute(send)
     }
 }

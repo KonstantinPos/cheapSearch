@@ -1,5 +1,6 @@
 package com.cheapSearch.service
 
+import com.cheapSearch.utils.countries
 import kotlinx.coroutines.runBlocking
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Component
@@ -12,13 +13,12 @@ class ScheduleService(
     @Scheduled(fixedDelay = 10000)
     fun scheduleFixedDelayTask() {
         val minCost = runBlocking {
-            toursService.getMinCostTour(destination.first.first)
+            toursService.getMinCostTour(countries.values.first())
         }
-        telegramBot.sendMessage(CHAT_ID, "Min cost for ${destination.first.second} = $minCost")
+        telegramBot.sendMessage(CHAT_ID, "Min cost for ${countries.keys.first()} = $minCost")
     }
 
     companion object {
-        const val CHAT_ID = 442595576L
-        val destination = Pair(71 to "Thailand", 70 to "Sri Lanka")
+        const val CHAT_ID = "442595576"
     }
 }

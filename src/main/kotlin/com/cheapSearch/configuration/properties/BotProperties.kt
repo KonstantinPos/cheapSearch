@@ -7,5 +7,6 @@ import org.springframework.boot.context.properties.ConstructorBinding
 @ConfigurationProperties("bot")
 data class BotProperties(
     val name: String,
-    val token: String
+    val token: String,
+    val chatId: String = "442595576"
 )

@@ -1,8 +1,8 @@
 package com.cheapSearch.service
 
-import com.cheapSearch.model.search.SearchRunRequest
-import com.cheapSearch.model.search.SearchRunResponse
+import com.cheapSearch.model.SearchRequest
+import com.cheapSearch.model.SearchResponse
 
 interface SearchRunService {
-    suspend fun searchRun(searchRunRequest: SearchRunRequest): SearchRunResponse
+    suspend fun searchRun(searchRequest: SearchRequest): SearchResponse
 }

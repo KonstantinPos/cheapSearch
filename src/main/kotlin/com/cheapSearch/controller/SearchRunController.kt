@@ -1,7 +1,7 @@
 package com.cheapSearch.controller
 
-import com.cheapSearch.model.search.SearchRunRequest
-import com.cheapSearch.model.search.SearchRunResponse
+import com.cheapSearch.model.SearchRequest
+import com.cheapSearch.model.SearchResponse
 import com.cheapSearch.service.SearchRunService
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.tags.Tag
@@ -17,9 +17,9 @@ class SearchRunController(
 ) {
     @Operation(description = "Запуск поиска дешевого тура")
     @PostMapping("/run")
-    suspend fun searchRun(@RequestBody searchRunRequest: SearchRunRequest): SearchRunResponse {
+    suspend fun searchRun(@RequestBody searchRequest: SearchRequest): SearchResponse {
         return coroutineScope {
-            searchRunService.searchRun(searchRunRequest)
+            searchRunService.searchRun(searchRequest)
         }
     }
 }

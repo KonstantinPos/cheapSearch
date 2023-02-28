@@ -7,3 +7,7 @@ server:
 bot:
   name: CheapSearchToursBot
   token: 5980693442:AAGbdQyXX3XkeGRmFnBhNwp2jqMb0cwcfqs
+
+logging:
+  level:
+    root: INFO
