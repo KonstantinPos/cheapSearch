@@ -1,24 +1,35 @@
 package com.cheapSearch.service
 
+import com.cheapSearch.configuration.properties.BotProperties
+import com.cheapSearch.model.SearchRequest
 import com.cheapSearch.utils.countries
 import kotlinx.coroutines.runBlocking
+import org.slf4j.LoggerFactory
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Component
 
 @Component
 class ScheduleService(
-    private val telegramBot: TelegramBot,
-    private val toursService: ToursService
+    private val searchRunService: SearchRunService,
+    private val telegramPollingBot: TelegramPollingBot,
+    private val botProperties: BotProperties
 ) {
-    @Scheduled(fixedDelay = 10000)
-    fun scheduleFixedDelayTask() {
-        val minCost = runBlocking {
-            toursService.getMinCostTour(countries.values.first())
-        }
-        telegramBot.sendMessage(CHAT_ID, "Min cost for ${countries.keys.first()} = $minCost")
-    }
+    private val logger = LoggerFactory.getLogger(javaClass)
 
-    companion object {
-        const val CHAT_ID = "442595576"
+        @Scheduled(fixedDelay = 10000)
+    fun scheduleFixedDelayTask() {
+        logger.info("Start getting min cost tour by scheduled")
+        val searchResponse = runBlocking {
+            searchRunService.searchRun(
+                searchRequest = SearchRequest(
+                    country = countries.keys.first()
+                )
+            )
+        }
+        telegramPollingBot.sendMessage(
+            botProperties.chatId,
+            "Min cost for ${searchResponse.country}: ${searchResponse.cost}"
+        )
+        logger.info("Finish getting min cost tour by scheduled")
     }
 }
